@@ -2,6 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.patches import FancyArrowPatch
 from mpl_toolkits.mplot3d import proj3d
+import scipy.stats
 
 # https://stackoverflow.com/questions/22867620/putting-arrowheads-on-vectors-in-matplotlibs-3d-plot
 class Arrow3D(FancyArrowPatch):
@@ -26,3 +27,26 @@ def draw_vector(v, ax, s):
             mutation_scale=20, lw=3, arrowstyle="-|>")
         ax.add_artist(a)
     ax.text(*v, s=s)
+
+class MixtureGaussian:
+    def __init__(self, locs, scales, p, seed=43):
+        # len(locs) == len(scales) == len(p)
+        # locs - liczby rzeczywiste
+        # scales - liczby rzeczywiste dodatnie
+        # p - liczby rzeczywiste dodatnie sumujące się do 1
+        self.locs = locs
+        self.scales = scales
+        self.p = p
+        self.rng = np.random.RandomState(seed=seed)
+
+    def sample(self):
+        # najpierw losujemy konkretnego gaussa z prawdopodobieństwami p
+        which = self.rng.choice(range(len(self.p)), p=self.p)
+        # potem samplujemy z tego gaussa
+        return self.rng.normal(loc=self.locs[which], scale=self.scales[which])
+
+    def pdf(self, x):
+        # średnia ważona wszystkich gaussów z wagami p
+        return float(np.sum(
+            [self.p[which] * scipy.stats.norm(loc=self.locs[which], scale=self.scales[which]).pdf(x) \
+                for which in range(len(self.p))]))
