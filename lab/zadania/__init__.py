@@ -35,3 +35,10 @@ try:
     BayesianLinearRegression = m.zadanie4.BayesianLinearRegression
 except ModuleNotFoundError:
     BayesianLinearRegression = None
+
+# zadanie 5
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie5')
+    LogisticRegression = m.zadanie5.LogisticRegression
+except ModuleNotFoundError:
+    LogisticRegression = None
