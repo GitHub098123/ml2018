@@ -42,3 +42,16 @@ try:
     LogisticRegression = m.zadanie5.LogisticRegression
 except ModuleNotFoundError:
     LogisticRegression = None
+
+# zadanie 6
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie6')
+    TextMultinomialNaiveBayes = m.zadanie6.TextMultinomialNaiveBayes
+    TextBernoulliNaiveBayes = m.zadanie6.TextBernoulliNaiveBayes
+    MultinomialNaiveBayes = m.zadanie6.MultinomialNaiveBayes
+    BernoulliNaiveBayes = m.zadanie6.BernoulliNaiveBayes
+except ModuleNotFoundError:
+    TextMultinomialNaiveBayes = None
+    TextBernoulliNaiveBayes = None
+    MultinomialNaiveBayes = None
+    BernoulliNaiveBayes = None
