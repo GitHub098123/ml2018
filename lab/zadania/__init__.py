@@ -55,3 +55,10 @@ except ModuleNotFoundError:
     TextBernoulliNaiveBayes = None
     MultinomialNaiveBayes = None
     BernoulliNaiveBayes = None
+
+# zadanie 7
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie7')
+    DecisionTree = m.zadanie7.DecisionTree
+except ModuleNotFoundError:
+    DecisionTree = None
