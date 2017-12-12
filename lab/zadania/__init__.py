@@ -62,3 +62,10 @@ try:
     DecisionTree = m.zadanie7.DecisionTree
 except ModuleNotFoundError:
     DecisionTree = None
+
+# zadanie 8
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie8')
+    RandomForest = m.zadanie8.RandomForest
+except ModuleNotFoundError:
+    RandomForest = None
