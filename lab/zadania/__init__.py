@@ -69,3 +69,10 @@ try:
     RandomForest = m.zadanie8.RandomForest
 except ModuleNotFoundError:
     RandomForest = None
+
+# zadanie 9
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie9')
+    GradientBoostingClassifier = m.zadanie9.GradientBoostingClassifier
+except ModuleNotFoundError:
+    GradientBoostingClassifier = None
