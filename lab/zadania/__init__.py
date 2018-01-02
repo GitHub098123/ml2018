@@ -76,3 +76,24 @@ try:
     GradientBoostingClassifier = m.zadanie9.GradientBoostingClassifier
 except ModuleNotFoundError:
     GradientBoostingClassifier = None
+
+# zadanie 10
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie10')
+    Dataset = m.zadanie10.Dataset
+    RandomSplitter = m.zadanie10.RandomSplitter
+    RandomLabelSplitter = m.zadanie10.RandomLabelSplitter
+    TimeSplitter = m.zadanie10.TimeSplitter
+    CVSplitter = m.zadanie10.CVSplitter
+    train_on_best_hyperparams = m.zadanie10.train_on_best_hyperparams
+    double_split_evaluate = m.zadanie10.double_split_evaluate
+    random_grid_search = m.zadanie10.random_grid_search
+except ModuleNotFoundError:
+    Dataset = None
+    RandomSplitter = None
+    RandomLabelSplitter = None
+    TimeSplitter = None
+    CVSplitter = None
+    train_on_best_hyperparams = None
+    double_split_evaluate = None
+    random_grid_search = None
