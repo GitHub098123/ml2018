@@ -97,3 +97,10 @@ except ModuleNotFoundError:
     train_on_best_hyperparams = None
     double_split_evaluate = None
     random_grid_search = None
+
+# zadanie 11
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie11')
+    SimpleLogisticAgent = m.zadanie11.SimpleLogisticAgent
+except ModuleNotFoundError:
+    SimpleLogisticAgent = None
