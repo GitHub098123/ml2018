@@ -104,3 +104,12 @@ try:
     SimpleLogisticAgent = m.zadanie11.SimpleLogisticAgent
 except ModuleNotFoundError:
     SimpleLogisticAgent = None
+
+# zadanie 12
+try:
+    __import__(os.environ['ML2018NAME'] + '.zadanie12')
+    LogisticAgent = m.zadanie12.LogisticAgent
+    AgentTrainer = m.zadanie12.AgentTrainer
+except ModuleNotFoundError:
+    LogisticAgent = None
+    AgentTrainer = None
