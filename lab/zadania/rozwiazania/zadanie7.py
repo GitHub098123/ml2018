@@ -163,9 +163,9 @@ class Node:
         else:
             try:
                 self.node_splitter = self.make_node_splitter(X, y)
+                self.children = tuple([self.__class__(X, y, self.depth + 1) for X, y in self.node_splitter.split(X, y)])
             except NodeSplitterException:
                 self.to_leaf()
-            self.children = tuple([self.__class__(X, y, self.depth + 1) for X, y in self.node_splitter.split(X, y)])
 
     def to_leaf(self):
         self.node_splitter = None
